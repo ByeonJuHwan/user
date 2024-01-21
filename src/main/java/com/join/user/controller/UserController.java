@@ -1,6 +1,5 @@
 package com.join.user.controller;
 
-import com.join.user.domain.User;
 import com.join.user.dto.UserDto;
 import com.join.user.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -12,7 +11,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @Slf4j
@@ -20,11 +18,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class UserController {
 
     private final UserService userService;
-
-    @GetMapping("/")
-    public String main() {
-        return "main";
-    }
 
     @GetMapping("/api/join")
     public String joinPage(Model model){
