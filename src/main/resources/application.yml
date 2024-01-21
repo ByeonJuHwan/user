@@ -1,14 +1,14 @@
 
 # server port
 server:
-  port: 80
+  port: 8080
 
 # Data Source
 spring:
   datasource:
-    url: jdbc:mariadb://join-db.crsyg0wgg0ss.ap-northeast-2.rds.amazonaws.com:3306/user
+    url: jdbc:mariadb://localhost:3306/user
     driver-class-name: org.mariadb.jdbc.Driver
-    username: admin
+    username: root
     password: milk0147*
   data:
     rest:
