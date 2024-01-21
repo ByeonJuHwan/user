@@ -1,16 +1,11 @@
 package com.join.user.dto;
 
 import jakarta.validation.constraints.NotBlank;
-import lombok.*;
+import lombok.Data;
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.Range;
 
 @Data
-public class UserDto {
-
-    @NotBlank
-    private String name;
-
+public class LoginDto {
     @NotBlank
     @Length(min = 2,max = 8)
     private String userId;
