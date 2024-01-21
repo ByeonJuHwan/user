@@ -14,7 +14,11 @@ public class UserService {
 
 
     public void joinUser(UserDto userDto) {
-        User user = User.builder().userId(userDto.getUserId()).password(userDto.getPassword()).build();
+        User user = User.builder()
+                .userId(userDto.getUserId())
+                .password(userDto.getPassword())
+                .name(userDto.getName())
+                .build();
         userRepository.save(user);
     }
 
