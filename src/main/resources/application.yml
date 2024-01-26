@@ -22,7 +22,7 @@ spring:
   # Spring Data JPA(Java Persistence API)
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     properties:
       hibernate:
 #        dialect: org.hibernate.dialect.MariaDBDialect
