@@ -6,6 +6,7 @@ import com.join.user.service.LoginService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,8 +14,10 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+@Slf4j
 @RequiredArgsConstructor
 public class MainController {
 
@@ -36,14 +39,17 @@ public class MainController {
     }
 
     @GetMapping("/login")
-    public String loginPage(Model model) {
+    public String loginPage(Model model,@RequestParam String redirectURL) {
         model.addAttribute("user", new LoginDto());
+        log.info("redirectURL = {}", redirectURL);
         return "login";
     }
 
     @PostMapping("/login")
     public String login(@Validated @ModelAttribute("user") LoginDto loginDto , BindingResult bindingResult,
-                        HttpServletRequest request) {
+                        HttpServletRequest request,
+                        @RequestParam String redirectURL) {
+        log.info("redirectURL = {}", redirectURL);
         // loginDto 에 문제가 생겼을때
         if (bindingResult.hasErrors()) {
             return "login";
@@ -60,7 +66,7 @@ public class MainController {
         HttpSession session = request.getSession();
         session.setAttribute("Session_Id", loginedUser);
 
-        return "redirect:/";
+        return "redirect:"+redirectURL;
     }
 
     @PostMapping("/logout")
