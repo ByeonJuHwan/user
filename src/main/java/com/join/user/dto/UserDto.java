@@ -18,4 +18,5 @@ public class UserDto {
     @NotBlank
     @Length(min = 2,max = 8)
     private String password;
+
 }

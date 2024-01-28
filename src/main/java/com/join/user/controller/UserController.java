@@ -2,6 +2,7 @@ package com.join.user.controller;
 
 import com.join.user.dto.UserDto;
 import com.join.user.service.UserService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
