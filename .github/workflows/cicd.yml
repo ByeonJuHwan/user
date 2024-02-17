@@ -42,7 +42,7 @@ jobs:
         echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> $GITHUB_ENV
 
     - name: Build with Gradle Wrapper
-      run: ./gradlew build -Dspring.datasource.url=${{ env.DB_URL }} -Dspring.datasource.username=${{ env.DB_USER }} -Dspring.datasource.password=${{ env.DB_PASSWORD }}
+      run: ./gradlew build
 
   dependency-submission:
     runs-on: ubuntu-latest
