@@ -60,7 +60,6 @@ jobs:
       # Build Docker image
       - name: Build Docker image
         run: docker build -t byeonjuhwan/usercicid:latest .
-        working-directory: /Users/byeonjuhwan/Desktop/study/user
 
 
       # Push Docker image to Docker Hub
