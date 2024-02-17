@@ -27,11 +27,11 @@ public class MainController {
     public String homePage(HttpServletRequest request, Model model) {
         HttpSession session = request.getSession(false);
         if (session == null) {
-            return "/main";
+            return "main";
         }
         User user = (User) session.getAttribute("Session_Id");
         if (user == null) {
-            return "/main";
+            return "main";
         }
 
         model.addAttribute("user", user);
