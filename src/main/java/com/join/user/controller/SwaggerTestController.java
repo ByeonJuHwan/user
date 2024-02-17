@@ -8,8 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.HttpURLConnection;
-
 @RestController
 @RequestMapping("/api")
 @Tag(name = "Swagger 테스트 태그 1", description = "Swagger 적용기")
