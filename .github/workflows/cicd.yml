@@ -59,14 +59,13 @@ jobs:
 
       # Build Docker image
       - name: Build Docker image
-        run: |
-          cd /Users/byeonjuhwan/Desktop/study/user
-          docker build -t byeonjuhwan/usercicid:latest.
+        working-directory: /Users/byeonjuhwan/Desktop/study/user
+        run: docker build -t byeonjuhwan/usercicid:latest .
 
 
       # Push Docker image to Docker Hub
       - name: Push Docker image to Docker Hub
-        run: docker push your-docker-username/your-image-name:latest
+        run: docker push byeonjuhwan/usercicid:latest
 
       # SSH into EC2 instance and pull the latest Docker image and restart the container using Docker Compose
       - name: SSH into EC2 and deploy Docker image using Docker Compose
