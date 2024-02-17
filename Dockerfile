@@ -22,4 +22,5 @@ WORKDIR /app
 COPY --from=build /app/build/libs/*.jar app.jar
 
 # 6. 애플리케이션 실행
+ENV SPRING_PROFILES_ACTIVE=dev
 ENTRYPOINT ["java", "-jar", "/app/app.jar"]
