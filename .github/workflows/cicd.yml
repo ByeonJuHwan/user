@@ -33,8 +33,16 @@ jobs:
 
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@417ae3ccd767c252f5661f1ace9f835f9654f2b5 # v3.1.0
+
+    # Set up database connection environment variables
+    - name: Set up DB connection environment variables
+      run: |
+        echo "DB_URL=jdbc:mariadb://${{ secrets.DB_HOST }}:${{ secrets.DB_PORT }}/user" >> $GITHUB_ENV
+        echo "DB_USER=${{ secrets.DB_USER }}" >> $GITHUB_ENV
+        echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> $GITHUB_ENV
+
     - name: Build with Gradle Wrapper
-      run: ./gradlew build
+      run: ./gradlew build -Dspring.datasource.url=${{ env.DB_URL }} -Dspring.datasource.username=${{ env.DB_USER }} -Dspring.datasource.password=${{ env.DB_PASSWORD }}
 
   dependency-submission:
     runs-on: ubuntu-latest
