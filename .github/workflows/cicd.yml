@@ -79,6 +79,7 @@ jobs:
 
             
   notify:
+    needs: deploy
     runs-on: ubuntu-latest
     steps:
       # 배포 성공 시 Discord 알림
