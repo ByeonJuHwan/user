@@ -1,0 +1,36 @@
+
+
+# Data Source
+spring:
+  profiles:
+    active: test
+  datasource:
+    url: jdbc:h2:file:/data/testdb
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: false
+  data:
+    rest:
+      base-path: /api
+      detection-strategy: annotated
+  devtools:
+    livereload:
+      enabled: true
+  freemarker:
+    cache: false
+  # Spring Data JPA(Java Persistence API)
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MariaDBDialect
+        #show_sql: true
+        format_sql: true
+    open-in-view: false
+
+# Logging level
+logging.level:
+  org.hibernate.SQL: debug
