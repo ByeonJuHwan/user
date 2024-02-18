@@ -1,4 +1,4 @@
-name: Java CI/CD with Gradle, Docker, and Docker Compose
+name: CI/CD 
 
 on:
   push:
