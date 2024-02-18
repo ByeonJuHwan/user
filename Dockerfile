@@ -1,5 +1,5 @@
 # 1. 베이스 이미지 선택
-FROM openjdk:17-jdk-slim as build
+FROM bellsoft/liberica-openjdk-alpine:21 as build
 
 # 2. 작업 디렉토리 설정
 WORKDIR /app
@@ -14,7 +14,7 @@ RUN chmod +x ./gradlew
 RUN ./gradlew build
 
 # 6. 애플리케이션 실행을 위한 새로운 스테이지
-FROM openjdk:17-jdk-slim
+FROM bellsoft/liberica-openjdk-alpine:21
 
 WORKDIR /app
 
