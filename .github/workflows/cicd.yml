@@ -75,7 +75,7 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             docker pull byeonjuhwan/usercicid:latest
-            docker-compose -f docker-compose.yml up -d12
+            docker-compose -f docker-compose.yml up -d
 
             
   notify:
