@@ -82,10 +82,26 @@ jobs:
     needs: deploy
     runs-on: ubuntu-latest
     steps:
-      - name: Notify Discord
-        uses: Ilshidur/action-discord@0.3.2
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-        with:
-          args: 'Deployment has been completed 🚀'
+      # 배포 성공 시 Discord 알림
+    - name: Notify Success to Discord
+      if: success()
+      uses: sarisia/actions-status-discord@v1.13.1
+      with:
+        webhook: ${{ secrets.DISCORD_WEBHOOK }}
+        status: "success"
+        title: "Deployment Succeeded"
+        description: "The deployment of the application was successful."
+        color: "00FF00" # 성공 시 녹색
+        url: "https://naver.com"
+
+    # 배포 실패 시 Discord 알림
+    - name: Notify Failure to Discord
+      if: failure()
+      uses: sarisia/actions-status-discord@v1.13.1
+      with:
+        webhook: ${{ secrets.DISCORD_WEBHOOK }}
+        status: "failure"
+        title: "Deployment Failed"
+        description: "The deployment of the application failed. Please check the logs."
+        color: "FF0000" # 실패 시 빨간색
           
